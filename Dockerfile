@@ -5,6 +5,8 @@ FROM ubuntu:18.04
 ENV kallisto_version 0.44.0
 ENV samtools_version 1.9
 ENV bedtools_version 2.27.1
+ENV LANG C.UTF-8
+ENV LC_ALL C.UTF-8
 
 # run update and install necessary tools from package manager
 RUN apt-get update -y && apt-get install -y \
