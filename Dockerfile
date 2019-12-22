@@ -28,7 +28,8 @@ RUN apt-get update -y && apt-get install -y \
     libbz2-dev \
     liblzma-dev \
     bzip2 \
-    unzip
+    unzip \
+    git-lfs
 
 # install python libraries
 RUN pip3 install numpy
@@ -66,7 +67,7 @@ RUN make
 RUN ln -s /usr/bin/bedtools2/bin/bedtools /usr/bin/bedtools
 
 # install archla
-WORKDIR /usr/bin
-RUN curl -SL https://github.com/RabadanLab/arcasHLA/archive/master.zip > master.zip
-RUN unzip master.zip
-RUN ln -s /usr/bin/arcasHLA-master/arcasHLA /usr/bin/arcasHLA
+WORKDIR /root/
+RUN git clone https://github.com/RabadanLab/arcasHLA.git
+WORKDIR  ./arcasHLA/
+RUN git lfs install
