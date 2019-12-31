@@ -71,3 +71,5 @@ WORKDIR /root/
 RUN git clone https://github.com/RabadanLab/arcasHLA.git
 WORKDIR  ./arcasHLA/
 RUN git lfs install
+RUN ./arcasHLA reference --update
+
